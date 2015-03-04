@@ -1,5 +1,5 @@
 # Rdataviz
-Collection of R scripts to analyze and visualize geographic or various datasets
+Collection of R scripts to analyze and visualize geographic or various datasets. Most scripts will be accompanied by downloadable or linked datasets to use. If you are looking for an IDE for R look no further, [RStudio](http://www.rstudio.com/) is here.
 
 #Density Map creator 
 (Farmer's market data seen [here](https://catalog.data.gov/dataset/farmers-markets-geographic-data))
