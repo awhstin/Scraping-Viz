@@ -40,8 +40,16 @@ review <- reviews %>%
   html_node(".entry .partial_entry") %>%
   html_text()%>%
   as.character()
+  
+member <- list[i] %>% 
+  read_html() %>% 
+  html_nodes("#REVIEWS .col1of2")
 
-rowthing <-data.frame(id, quote, rating, review, date, stringsAsFactors = FALSE)
+location <- member %>%
+  html_node(".location") %>%
+  html_text()
+
+rowthing <-data.frame(id, quote, rating, review, date, location, stringsAsFactors = FALSE)
 tripadvisoraic<-rbind(rowthing, tripadvisor)
 }
 
