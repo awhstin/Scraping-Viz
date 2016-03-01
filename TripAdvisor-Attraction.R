@@ -1,11 +1,12 @@
-
+#This code is an addendum to the fantastic code Hadley (rvest/demo/tripadvisor.R) put out on Trip Advisor scraping. It is a for-loop specifically for Attraction
+#related entities on Trip Advisor, and runs off a CSV of urls for your attraction. 
 
 library(rvest)
 
-testurl <- read.csv("testurl.csv", header=FALSE, quote="'", stringsAsFactors = F)
+testurl <- read.csv("url.csv", header=FALSE, quote="'", stringsAsFactors = F)
 list<-unlist(testurl)
 
-tripadvisoraic <- NULL
+tripadvisor <- NULL
 
 for(i in 1:length(list)){
 
@@ -28,6 +29,8 @@ rating <- reviews %>%
   as.integer()
 
 date <- reviews %>%
+# html_node(".rating .ratingDate") %>%
+# html_text()
   html_node(".rating .ratingDate") %>%
   html_attr("title") %>%
   strptime("%b %d, %Y") %>%
@@ -39,7 +42,7 @@ review <- reviews %>%
   as.character()
 
 rowthing <-data.frame(id, quote, rating, review, date, stringsAsFactors = FALSE)
-tripadvisoraic<-rbind(rowthing, tripadvisoraic)
+tripadvisoraic<-rbind(rowthing, tripadvisor)
 }
 
 #export
