@@ -46,4 +46,4 @@ tripadvisoraic<-rbind(rowthing, tripadvisor)
 }
 
 #export
-write.csv(tripadvisoraic,file='TripAdvisorAICD.csv')
+write.csv(tripadvisoraic,file='TripAdvisor.csv')
