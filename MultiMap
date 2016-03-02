@@ -1,3 +1,4 @@
+#Data for this project can be found at http://pendientedemigracion.ucm.es/info/cliwoc/
 library(maptools)
 fm<- read.csv("CLIWOC15.csv", header = TRUE, sep = ",")
 spain<-fm[fm$Nation=="Spain",]
