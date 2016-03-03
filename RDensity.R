@@ -5,9 +5,6 @@
 #To run with your own data:
 #Just save a copy of your .csv in "R" in my public folder
 
-#This is where the file should be located.
-setwd("K:/Public/Austin Wehrwein/R/mapdata")
-
 #These are the required packages which should be installed.
 #install.packages("ggmap")
 #install.packages("zipcode")
@@ -36,7 +33,7 @@ clean.data<- merge(data, zipcode, by.x='zip', by.y='zip')
 
 map<-get_map(location='united states', zoom=4, maptype='roadmap')
 #map<-get_map(location='united states', zoom=4, maptype='roadmap', color="bw")
-ggmap(map)+geom_point(aes(x=longitude, y=latitude), data=clean.data, alpha=.5, cex=.01)
+ggmap(map)+geom_point(aes(x=longitude, y=latitude), data=clean.data, alpha=.5, cex=.01)+theme(legend.position="none")
 
 #You will get a Warning message at the end that tells you how many of the 
 #entries were omitted because they fall outside the range of the map.
