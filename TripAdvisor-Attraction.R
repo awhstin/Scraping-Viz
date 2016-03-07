@@ -1,5 +1,7 @@
 #This code is an addendum to the fantastic code Hadley (rvest/demo/tripadvisor.R) put out on Trip Advisor scraping. It is a for-loop specifically for Attraction
 #related entities on Trip Advisor, and runs off a CSV of urls for your attraction. 
+#There is a commented out section that addresses the issue where Trip Advisor changed the date formata couple years ago, 
+#so it grabs all the dates as strings.
 
 library(rvest)
 
