@@ -31,12 +31,14 @@ rating <- reviews %>%
   as.integer()
 
 date <- reviews %>%
-# html_node(".rating .ratingDate") %>%
-# html_text()
   html_node(".rating .ratingDate") %>%
   html_attr("title") %>%
   strptime("%b %d, %Y") %>%
   as.POSIXct()
+  
+strdate <- reviews %>%
+  html_node(".rating .ratingDate") %>%
+  html_text()
 
 review <- reviews %>%
   html_node(".entry .partial_entry") %>%
@@ -51,7 +53,7 @@ location <- member %>%
   html_node(".location") %>%
   html_text()
 
-rowthing <-data.frame(id, quote, rating, review, date, location, stringsAsFactors = FALSE)
+rowthing <-data.frame(id, quote, rating, review, date, strdate, location, stringsAsFactors = FALSE)
 tripadvisoraic<-rbind(rowthing, tripadvisor)
 }
 
