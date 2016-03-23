@@ -18,3 +18,8 @@ newssource<-data.frame(article,news[i,1],sentiment,stringsAsFactors = FALSE)
 rename(newssource, c('news.i..1.'='Source'))
 newslist<-rbind(newslist,newssource)
 }
+
+#write data as date.csv
+write.csv(newslist,file = paste(Sys.Date(),".csv",sep="",collapse=NULL), row.names=TRUE)
+
+
