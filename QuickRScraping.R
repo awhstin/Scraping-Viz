@@ -1,3 +1,5 @@
+#two column dataframe with the first column being the url of the website the second being the XML path.
+
 library(syuzhet)
 library(rvest)
 library(plyr)
