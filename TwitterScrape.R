@@ -19,9 +19,6 @@ duplicated(AW$text)
 AW[duplicated(AW$text),]
 unique(AW[duplicated(AW$text),])
 AW<-AW[!duplicated(AW$text),]
-m<-as.matrix(AW$count)
-m<-tfidf(m, normalize=F)
-AW<-cbind(AW, m)
 
 #Make the word cloud
 require('wordcloud')
