@@ -57,5 +57,17 @@ rowthing <-data.frame(id, quote, rating, review, date, strdate, location, string
 tripadvisoraic<-rbind(rowthing, tripadvisor)
 }
 
+#grab total rankings
+url<-('https://www.tripadvisor.com/Attraction_Review-g35805-d103239-Reviews-or500-Art_Institute_of_Chicago-Chicago_Illinois.html#REVIEWS')
+
+totals <- list %>% 
+  read_html() %>% 
+  html_nodes(".main_content .barChart")
+
+ratings <- totals %>%
+  html_nodes(".part") %>%
+  html_text() %>%
+  t(data.frame())
+
 #export
 write.csv(tripadvisoraic,file='TripAdvisor.csv')
