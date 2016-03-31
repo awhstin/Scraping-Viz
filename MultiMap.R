@@ -1,6 +1,9 @@
 #Data for this project can be found at http://pendientedemigracion.ucm.es/info/cliwoc/
 library(maptools)
 fm<- read.csv("CLIWOC15.csv", header = TRUE, sep = ",")
+#summary
+summary(fm)
+
 spain<-fm[fm$Nation=="Spain",]
 france<-fm[fm$Nation=="France",]
 nether<-fm[fm$Nation=="Nederland",]
