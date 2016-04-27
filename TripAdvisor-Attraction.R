@@ -52,6 +52,10 @@ member <- list[i] %>%
 location <- member %>%
   html_node(".location") %>%
   html_text()
+  
+member %>% html_node(“.username”) %>% html_text(trim=TRUE) %>%
+ifelse(identical(., character(0)), NA, .)
+
 
 rowthing <-data.frame(id, quote, rating, review, date, strdate, location, stringsAsFactors = FALSE)
 tripadvisoraic<-rbind(rowthing, tripadvisor)
