@@ -7,7 +7,7 @@ ice_cream <- read_html("http://future.aae.wisc.edu/data/annual_values/by_area/22
 ice_table <- ice_cream %>%
   html_nodes('table') %>%
   html_table(fill=TRUE)
-stats<-data.frame(ice_table[1])
+stats<-data.frame(ice_table[2])
 stats$Year<-as.character(stats$Year)
 
 ggplot(stats, aes(x=Year, y=Value)) + theme_tufte(base_size=14, ticks=F) +
