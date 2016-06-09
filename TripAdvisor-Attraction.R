@@ -58,7 +58,6 @@ ifelse(identical(., character(0)), NA, .)
 
 
 rowthing <-data.frame(id, quote, rating, review, date, strdate, location, stringsAsFactors = FALSE)
-tripadvisoraic<-rbind(rowthing, tripadvisor)
 }
 
 #grab total rankings
