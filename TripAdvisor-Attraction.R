@@ -8,8 +8,6 @@ library(rvest)
 testurl <- read.csv("url.csv", header=FALSE, quote="'", stringsAsFactors = F)
 list<-unlist(testurl)
 
-tripadvisor <- NULL
-
 for(i in 1:length(list)){
 
 reviews <- list[i] %>% 
@@ -53,10 +51,10 @@ location <- member %>%
   html_node(".location") %>%
   html_text()
   
-member %>% html_node(“.username”) %>% html_text(trim=TRUE) %>%
+member %>% 
+html_node(“.username”) %>% 
+html_text(trim=TRUE) %>%
 ifelse(identical(., character(0)), NA, .)
-
-
 rowthing <-data.frame(id, quote, rating, review, date, strdate, location, stringsAsFactors = FALSE)
 }
 
